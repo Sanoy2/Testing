@@ -41,8 +41,8 @@ function perform_test()
     sortingOn=$6        # shows if sorting was performed or not
 
     echo $command
-    echo $resultFile
-    echo $repetitions
+    # echo $resultFile
+    # echo $repetitions
 
     # file format:
     format="%e$separator"           # real elapsed time (in seconds)
@@ -58,6 +58,10 @@ function perform_test()
 
     for (( i=0; i<$repetitions; i++ ))
     do
+        test_number=$(($i+1))
+        echo Running test $test_number of $repetitions
+        wait
+
         echo -n "$sortingOn$separator" >> $resultFile
         echo -n "$numberOfInts$separator" >> $resultFile
         echo -n "$numberOfFiles$separator" >> $resultFile
@@ -88,10 +92,11 @@ function python_tests()
         if is_number $number_of_ints
         then 
             command="python python/main.py $number_of_ints $number_of_files $directory_with_files $sorting_on"
+            #echo $command
             wait
-            #perform_test "$command" $resultFile $repetitions $number_of_ints $number_of_files $sorting_on
+            perform_test "$command" $resultFile $repetitions $number_of_ints $number_of_files $sorting_on
             wait
-            echo $command
+
         fi
     done
 }
@@ -108,10 +113,11 @@ function dotnet_tests()
         if is_number $number_of_ints
         then 
             command="./dotnet/dotnet $number_of_ints $number_of_files $directory_with_files $sorting_on"
+            #echo $command
             wait
-            # perform_test "$command" $resultFile $repetitions $number_of_ints $number_of_files $sorting_on
+            perform_test "$command" $resultFile $repetitions $number_of_ints $number_of_files $sorting_on
             wait
-            echo $command
+
         fi
     done
 }
@@ -128,18 +134,31 @@ function cpp_tests()
         if is_number $number_of_ints
         then 
             command="./cpp/a.out $number_of_ints $number_of_files $directory_with_files $sorting_on"
+            #echo $command
             wait
-            # perform_test "$command" $resultFile $repetitions $number_of_ints $number_of_files $sorting_on
+            perform_test "$command" $resultFile $repetitions $number_of_ints $number_of_files $sorting_on
             wait
-            echo $command
+
         fi
     done
 }
 
+start=$(date +"%T")
+
 cd results/ 
 rm -r *
 cd ..
+wait
 
 python_tests
+wait
 dotnet_tests
+wait
 cpp_tests
+wait
+
+end=$(date +"%T")
+
+echo 
+echo finish
+
