@@ -41,8 +41,14 @@ cd ..
 
 clear
 
-set1
-repetitions=1
+set4
+repetitions=10
+
+start=$(date +"%T")
 
 command="./runTest.sh $chars_to_combine $max_pass_length $file $repetitions"
 $command
+
+end=$(date +"%T")
+echo "start: $start"
+echo "end  : $end"
