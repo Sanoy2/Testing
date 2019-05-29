@@ -161,4 +161,5 @@ end=$(date +"%T")
 
 echo 
 echo finish
-
+echo "start: $start"
+echo "end  : $end"
