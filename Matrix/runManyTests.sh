@@ -2,7 +2,9 @@
 
 #$number of matrixes   #$ dimensions   #$ repetitions
 
-repetitions=2
+start=$(date +"%T")
+
+repetitions=10
 
 cd results/ 
 rm -r *
@@ -17,3 +19,10 @@ wait
 ./runTest.sh 20 8 $repetitions
 wait
 ./runTest.sh 5 10 $repetitions
+wait
+
+end=$(date +"%T")
+
+echo
+echo "start : $start"
+echo "end   : $end"
