@@ -41,7 +41,7 @@ cd ..
 
 clear
 
-set3
+set2
 repetitions=10
 
 start=$(date +"%T")
