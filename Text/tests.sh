@@ -6,7 +6,7 @@ cd ..
 
 function set0()
 {
-    number_of_words=1000000
+    number_of_words=10000000
     filepath=~/Thesis/Testing/Text/files/out$number_of_words.txt
     common_name="out$number_of_words"
     repetitions=10
