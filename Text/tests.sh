@@ -4,6 +4,14 @@ cd results
 rm -r *
 cd ..
 
+function set0()
+{
+    number_of_words=1000000
+    filepath=~/Thesis/Testing/Text/files/out$number_of_words.txt
+    common_name="out$number_of_words"
+    repetitions=10
+}
+
 function set1()
 {
     number_of_words=500000
@@ -52,6 +60,11 @@ function set6()
     common_name="out$number_of_words"
     repetitions=10
 }
+
+set0
+command="./runTest.sh $filepath $common_name $repetitions"
+$command
+wait
 
 set1
 command="./runTest.sh $filepath $common_name $repetitions"
