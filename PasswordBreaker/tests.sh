@@ -8,14 +8,6 @@ function set1a()
     chosen_set="_set1a"
 }
 
-function set1a()
-{
-    chars_to_combine='qwertyuiopasdfghjklzxcvbnm'
-    max_pass_length=6
-    file=~/Thesis/Testing/PasswordBreaker/just_small_letters_max_6.txt
-    chosen_set="_set1b"
-}
-
 function set2a()
 {
     chars_to_combine='0123456789'
@@ -32,21 +24,6 @@ function set2b()
     chosen_set="_set2b"
 }
 
-function set3a()
-{
-    chars_to_combine='qwertyuiopasdfghjklzxcvbnm'
-    max_pass_length=4
-    file=~/Thesis/Testing/PasswordBreaker/just_small_letters_max_4.txt
-    chosen_set="_set3a"
-}
-
-function set3b()
-{
-    chars_to_combine='qwertyuiopasdfghjklzxcvbnm'
-    max_pass_length=6
-    file=~/Thesis/Testing/PasswordBreaker/just_small_letters_max_6.txt
-    chosen_set="_set3b"
-}
 
 function set4()
 {
@@ -67,15 +44,23 @@ function set5a()
 function set5b()
 {
     chars_to_combine='qwertyuiopasdfghjklzxcvbnmQWERTYUIOPASDFGHJKLZXCVBNM0123456789`~!@#$%^&*()_-=+[]{}\|;:,<.>/?'
-    max_pass_length=4
-    file=~/Thesis/Testing/PasswordBreaker/mix_of_letters_numbers_specials_max_4.txt
+    max_pass_length=3
+    file=~/Thesis/Testing/PasswordBreaker/mix_of_letters_numbers_specials_max_3.txt
     chosen_set="_set5b"
 }
 
+function set5c()
+{
+    chars_to_combine='qwertyuiopasdfghjklzxcvbnmQWERTYUIOPASDFGHJKLZXCVBNM0123456789`~!@#$%^&*()_-=+[]{}\|;:,<.>/?'
+    max_pass_length=4
+    file=~/Thesis/Testing/PasswordBreaker/mix_of_letters_numbers_specials_max_4.txt
+    chosen_set="_set5c"
+}
 
-cd results/
-rm -r *
-cd ..
+
+# cd results/
+# rm -r *
+# cd ..
 
 # clear
 
@@ -87,12 +72,6 @@ command="./runTest.sh $chars_to_combine $max_pass_length $file $repetitions $cho
 $command
 wait
 
-set1b
-repetitions=10
-command="./runTest.sh $chars_to_combine $max_pass_length $file $repetitions $chosen_set"
-$command
-wait
-
 set2a
 repetitions=10
 command="./runTest.sh $chars_to_combine $max_pass_length $file $repetitions $chosen_set"
@@ -100,18 +79,6 @@ $command
 wait
 
 set2a
-repetitions=10
-command="./runTest.sh $chars_to_combine $max_pass_length $file $repetitions $chosen_set"
-$command
-wait
-
-set3a
-repetitions=10
-command="./runTest.sh $chars_to_combine $max_pass_length $file $repetitions $chosen_set"
-$command
-wait
-
-set3b
 repetitions=10
 command="./runTest.sh $chars_to_combine $max_pass_length $file $repetitions $chosen_set"
 $command
@@ -130,6 +97,12 @@ $command
 wait
 
 set5b
+repetitions=10
+command="./runTest.sh $chars_to_combine $max_pass_length $file $repetitions $chosen_set"
+$command
+wait
+
+set5c
 repetitions=10
 command="./runTest.sh $chars_to_combine $max_pass_length $file $repetitions $chosen_set"
 $command
