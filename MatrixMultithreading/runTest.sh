@@ -67,7 +67,7 @@ function python_tests()
     resultFile=$python_result_file
     write_labels $resultFile
 
-    command="python main.py $matrixesNumber $matrixesDimensio $numberOfThreads"
+    command="python main.py $matrixesNumber $matrixesDimension $numberOfThreads"
     echo Running command: $command
     wait
     perform_test "$command" $resultFile $repetitions  

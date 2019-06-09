@@ -10,7 +10,7 @@
 start=$(date +"%T")
 repetitions=10
 
-function set1()
+function set1a()
 {
     matrixesNumber=10
     matrixesDimension=10
@@ -18,7 +18,7 @@ function set1()
     fileLabel="number-$matrixesNumber-dim-$matrixesDimension-threads-$numberOfThreads"
 }
 
-function set2()
+function set2a()
 {
     matrixesNumber=10
     matrixesDimension=10
@@ -26,7 +26,7 @@ function set2()
     fileLabel="number-$matrixesNumber-dim-$matrixesDimension-threads-$numberOfThreads"
 }
 
-function set3()
+function set3a()
 {
     matrixesNumber=10
     matrixesDimension=10
@@ -34,10 +34,42 @@ function set3()
     fileLabel="number-$matrixesNumber-dim-$matrixesDimension-threads-$numberOfThreads"
 }
 
-function set4()
+function set4a()
 {
     matrixesNumber=10
     matrixesDimension=10
+    numberOfThreads=10
+    fileLabel="number-$matrixesNumber-dim-$matrixesDimension-threads-$numberOfThreads"
+}
+
+function set1b()
+{
+    matrixesNumber=100
+    matrixesDimension=5
+    numberOfThreads=1
+    fileLabel="number-$matrixesNumber-dim-$matrixesDimension-threads-$numberOfThreads"
+}
+
+function set2b()
+{
+    matrixesNumber=100
+    matrixesDimension=5
+    numberOfThreads=2
+    fileLabel="number-$matrixesNumber-dim-$matrixesDimension-threads-$numberOfThreads"
+}
+
+function set3b()
+{
+    matrixesNumber=100
+    matrixesDimension=5
+    numberOfThreads=4
+    fileLabel="number-$matrixesNumber-dim-$matrixesDimension-threads-$numberOfThreads"
+}
+
+function set4b()
+{
+    matrixesNumber=100
+    matrixesDimension=5
     numberOfThreads=10
     fileLabel="number-$matrixesNumber-dim-$matrixesDimension-threads-$numberOfThreads"
 }
@@ -48,7 +80,7 @@ cd results/
 rm -r *
 cd ..
 
-set1
+set1b
 command="./runTest.sh $matrixesNumber $matrixesDimension $numberOfThreads $fileLabel $repetitions"
 $command
 wait
