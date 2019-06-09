@@ -8,10 +8,11 @@ repetitions=$4 # how many time the test should be performed
 chars_to_combine=$1
 max_password_length=$2
 file_with_digests=$3
+chosen_set=$5
 
-python_result_file="../results/pythonResults.txt"
-dotnet_result_file="../results/dotnetResults.txt"
-cpp_result_file="../results/cppResults.txt"
+python_result_file="../results/pythonResults$chosen_set.txt"
+dotnet_result_file="../results/dotnetResults$chosen_set.txt"
+cpp_result_file="../results/cppResults$chosen_set.txt"
 
 function write_labels()
 {
