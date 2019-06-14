@@ -13,7 +13,7 @@ repetitions=10
 function set1a()
 {
     matrixesNumber=10
-    matrixesDimension=10
+    matrixesDimension=12
     numberOfThreads=1
     fileLabel="number-$matrixesNumber-dim-$matrixesDimension-threads-$numberOfThreads"
 }
@@ -21,7 +21,7 @@ function set1a()
 function set2a()
 {
     matrixesNumber=10
-    matrixesDimension=10
+    matrixesDimension=12
     numberOfThreads=2
     fileLabel="number-$matrixesNumber-dim-$matrixesDimension-threads-$numberOfThreads"
 }
@@ -29,7 +29,7 @@ function set2a()
 function set3a()
 {
     matrixesNumber=10
-    matrixesDimension=10
+    matrixesDimension=12
     numberOfThreads=4
     fileLabel="number-$matrixesNumber-dim-$matrixesDimension-threads-$numberOfThreads"
 }
@@ -37,39 +37,72 @@ function set3a()
 function set4a()
 {
     matrixesNumber=10
-    matrixesDimension=10
+    matrixesDimension=12
     numberOfThreads=10
     fileLabel="number-$matrixesNumber-dim-$matrixesDimension-threads-$numberOfThreads"
 }
 
 function set1b()
 {
-    matrixesNumber=10000
-    matrixesDimension=5
+    matrixesNumber=10
+    matrixesDimension=10
     numberOfThreads=1
     fileLabel="number-$matrixesNumber-dim-$matrixesDimension-threads-$numberOfThreads"
 }
 
 function set2b()
 {
-    matrixesNumber=10000
-    matrixesDimension=5
+    matrixesNumber=10
+    matrixesDimension=10
     numberOfThreads=2
     fileLabel="number-$matrixesNumber-dim-$matrixesDimension-threads-$numberOfThreads"
 }
 
 function set3b()
 {
-    matrixesNumber=10000
-    matrixesDimension=5
+    matrixesNumber=10
+    matrixesDimension=10
     numberOfThreads=4
     fileLabel="number-$matrixesNumber-dim-$matrixesDimension-threads-$numberOfThreads"
 }
 
 function set4b()
 {
-    matrixesNumber=10000
-    matrixesDimension=5
+    matrixesNumber=10
+    matrixesDimension=10
+    numberOfThreads=10
+    fileLabel="number-$matrixesNumber-dim-$matrixesDimension-threads-$numberOfThreads"
+}
+
+
+function set1c()
+{
+    matrixesNumber=10
+    matrixesDimension=8
+    numberOfThreads=1
+    fileLabel="number-$matrixesNumber-dim-$matrixesDimension-threads-$numberOfThreads"
+}
+
+function set2c()
+{
+    matrixesNumber=10
+    matrixesDimension=8
+    numberOfThreads=2
+    fileLabel="number-$matrixesNumber-dim-$matrixesDimension-threads-$numberOfThreads"
+}
+
+function set3c()
+{
+    matrixesNumber=10
+    matrixesDimension=8
+    numberOfThreads=4
+    fileLabel="number-$matrixesNumber-dim-$matrixesDimension-threads-$numberOfThreads"
+}
+
+function set4c()
+{
+    matrixesNumber=10
+    matrixesDimension=8
     numberOfThreads=10
     fileLabel="number-$matrixesNumber-dim-$matrixesDimension-threads-$numberOfThreads"
 }
