@@ -107,6 +107,38 @@ function set4c()
     fileLabel="number-$matrixesNumber-dim-$matrixesDimension-threads-$numberOfThreads"
 }
 
+function set1d()
+{
+    matrixesNumber=10
+    matrixesDimension=6
+    numberOfThreads=1
+    fileLabel="number-$matrixesNumber-dim-$matrixesDimension-threads-$numberOfThreads"
+}
+
+function set2d()
+{
+    matrixesNumber=10
+    matrixesDimension=6
+    numberOfThreads=2
+    fileLabel="number-$matrixesNumber-dim-$matrixesDimension-threads-$numberOfThreads"
+}
+
+function set3d()
+{
+    matrixesNumber=10
+    matrixesDimension=6
+    numberOfThreads=4
+    fileLabel="number-$matrixesNumber-dim-$matrixesDimension-threads-$numberOfThreads"
+}
+
+function set4d()
+{
+    matrixesNumber=10
+    matrixesDimension=6
+    numberOfThreads=10
+    fileLabel="number-$matrixesNumber-dim-$matrixesDimension-threads-$numberOfThreads"
+}
+
 repetitions=10
 
 cd results/ 
@@ -169,6 +201,26 @@ $command
 wait
 
 set4c
+command="./runTest.sh $matrixesNumber $matrixesDimension $numberOfThreads $fileLabel $repetitions"
+$command
+wait
+
+set1d
+command="./runTest.sh $matrixesNumber $matrixesDimension $numberOfThreads $fileLabel $repetitions"
+$command
+wait
+
+set2d
+command="./runTest.sh $matrixesNumber $matrixesDimension $numberOfThreads $fileLabel $repetitions"
+$command
+wait
+
+set3d
+command="./runTest.sh $matrixesNumber $matrixesDimension $numberOfThreads $fileLabel $repetitions"
+$command
+wait
+
+set4d
 command="./runTest.sh $matrixesNumber $matrixesDimension $numberOfThreads $fileLabel $repetitions"
 $command
 wait
