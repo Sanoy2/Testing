@@ -7,9 +7,10 @@
 # fileLabel=$4
 # repetitions=$5 # how many time the test should be performed
 
+rm results/*
+
 threads_collection=(1 2 3 4 8)
 matrixes_dimension_collection=(10 9 8 7 6 5 4 3 2 1)
-
 matrixes_number=8
 repetitions=10
 fileLabel="number-$matrixesNumber-dim-$matrixesDimension-threads-$numberOfThreads"
@@ -22,9 +23,9 @@ do
     do
         fileLabel="number-$matrixes_number-dim-$matrix_dimension-threads-$threads"
         command="./runTest.sh $matrixes_number $matrix_dimension $threads $fileLabel $repetitions"
-        # $command
+        $command
         wait
-        echo $command
+        # echo $fileLabel
     done
 done
 
