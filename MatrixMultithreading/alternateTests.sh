@@ -9,10 +9,10 @@
 
 rm results/*
 
-threads_collection=(1 2 3 4 8)
-matrixes_dimension_collection=(10 9 8 7 6 5 4 3 2 1)
+threads_collection=(1 2 3 4 5 6 7 8)
+matrixes_dimension_collection=(9 8 7 6)
 matrixes_number=8
-repetitions=10
+repetitions=5
 fileLabel="number-$matrixesNumber-dim-$matrixesDimension-threads-$numberOfThreads"
 
 start=$(date +"%T")

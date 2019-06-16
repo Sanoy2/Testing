@@ -17,7 +17,11 @@ cpp_result_file="../results/cppResults$fileLabel.txt"
 function write_labels()
 {
     resultFile=$1
-    echo -n "real time (s)$separator" > $resultFile
+    echo -n "language$separator" > $resultFile
+    echo -n "dimensions$separator" >> $resultFile
+    echo -n "matrixes number$separator" >> $resultFile
+    echo -n "number of threads$separator" >> $resultFile
+    echo -n "real time (s)$separator" >> $resultFile
     echo -n "user time (s)$separator" >> $resultFile
     echo -n "system time (s)$separator" >> $resultFile
     echo -n "CPU usage (%)$separator" >> $resultFile
@@ -25,6 +29,7 @@ function write_labels()
     echo -n "number of involuntarily context-switches$separator" >> $resultFile
     echo -n "number of voluntarily context-switches$separator" >> $resultFile
     echo "status code$separator" >> $resultFile
+    
 }
 
 function perform_test()
@@ -33,6 +38,11 @@ function perform_test()
     command=$1          # command thar should be executed during the test
     resultFile=$2       # the file to save results
     repetitions=$3      # how many times the test should run and append the result to result file
+
+    matrixes_number=$4
+    matrixes_dimension=$5
+    num_of_threads=$6
+    language=$7
 
     # file format:
     format="%e$separator"           # real elapsed time (in seconds)
@@ -53,8 +63,16 @@ function perform_test()
         echo Running test $test_number of $repetitions
         wait
 
+        echo -n "$language$separator" >> $resultFile
+        echo -n "$matrixes_dimension$separator" >> $resultFile
+        echo -n "$matrixes_number$separator" >> $resultFile
+        echo -n "$num_of_threads$separator" >> $resultFile
+        
+        wait
+
         /usr/bin/time -f $format $command 2>> $resultFile
         wait
+        
     done
 }
 
@@ -70,7 +88,8 @@ function python_tests()
     command="python main.py $matrixesNumber $matrixesDimension $numberOfThreads"
     echo Running command: $command
     wait
-    perform_test "$command" $resultFile $repetitions  
+
+    perform_test "$command" $resultFile $repetitions $matrixesNumber $matrixesDimension $numberOfThreads "Python"
     wait
 
     cd ..
@@ -89,7 +108,7 @@ function dotnet_tests()
     command="./dotnet $matrixesNumber $matrixesDimension $numberOfThreads"
     echo Running command: $command
     wait
-    perform_test "$command" $resultFile $repetitions  
+    perform_test "$command" $resultFile $repetitions $matrixesNumber $matrixesDimension $numberOfThreads "C#"
     wait
     cd ..
     echo -e "C# tests finished\n"
@@ -107,7 +126,7 @@ function cpp_tests()
     command="./a.out $matrixesNumber $matrixesDimension $numberOfThreads"
     echo Running command: $command
     wait
-    perform_test "$command" $resultFile $repetitions  
+    perform_test "$command" $resultFile $repetitions $matrixesNumber $matrixesDimension $numberOfThreads "C++"
     wait
     cd ..
     echo -e "C++ tests finished\n"
